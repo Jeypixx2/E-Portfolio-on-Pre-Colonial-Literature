@@ -338,6 +338,139 @@
                 max-width: 400px; /* Even smaller on small phones */
             }
         }
+
+           .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .author-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(150, 123, 182, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(150, 123, 182, 0.15);
+        }
+        
+        .author-img-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--pastel-lavender);
+            box-shadow: 0 4px 10px rgba(150, 123, 182, 0.2);
+        }
+        
+        .author-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .author-program {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .author-bio {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 15px;
+            text-align: justify;
+            flex-grow: 1;
+        }
+        
+        .author-role {
+            background-color: var(--pastel-lavender);
+            color: var(--primary-color);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .authors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Reflection Tabs Styles */
+.reflection-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.reflection-tab {
+    background-color: var(--pastel-lavender);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.reflection-tab:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.reflection-tab.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.reflection-card.active-reflection {
+    display: block !important;
+}
+
+.reflection-content p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .reflection-tab {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -370,62 +503,99 @@
             </div>
         </div>
         
-        <!-- HOME SECTION -->
-        <section id="home" class="content-section">
-            <h2 class="section-title">E-Portfolio Overview</h2>
+       <section id="home" class="content-section">
+        <h2 class="section-title">E-Portfolio Overview</h2>
+        
+        <div class="info-card">
+            <h3><i class="fas fa-bullseye"></i> Objectives of the E-Portfolio</h3>
+            <p>1. To showcase learning materials and activities on pre-colonial literary genres.</p>
+            <p>2. To demonstrate understanding of pre-colonial Philippine literature.</p>
+            <p>3. To reflect on learning experiences as a group.</p>
+        </div>
+        
+        <div class="info-card">
+            <h3><i class="fas fa-info-circle"></i> Grade Level and Quarter</h3>
+            <p><strong>Grade 11 - 1st Quarter</strong></p>
+            <p>This e-portfolio covers the pre-colonial literature module for senior high school students, focusing on the diverse literary forms and cultural expressions of pre-colonial Philippines.</p>
+        </div>
+        
+        <div class="info-card">
+            <h3><i class="fas fa-users"></i> Authors Information</h3>
+            <p>This e-portfolio was collaboratively created by a group of 3rd Year Bachelor of Secondary Education students from the College of Education.</p>
             
-            <div class="info-card">
-                <h3><i class="fas fa-bullseye"></i> Objectives of the E-Portfolio</h3>
-                <p>1. To showcase learning materials and activities on pre-colonial literary genres.</p>
-                <p>2. To demonstrate understanding of pre-colonial Philippine literature.</p>
-                <p>3. To reflect on learning experiences as a group.</p>
-            </div>
-            
-            <div class="info-card">
-                <h3><i class="fas fa-info-circle"></i> Grade Level and Quarter</h3>
-                <p><strong>Grade 11 - 1st Quarter</strong></p>
-                <p>This e-portfolio covers the pre-colonial literature module for senior high school students, focusing on the diverse literary forms and cultural expressions of pre-colonial Philippines.</p>
-            </div>
-            
-            <div class="info-card">
-                <h3><i class="fas fa-users"></i> Authors Information</h3>
-                <p>This e-portfolio was collaboratively created by a group of Grade 11 students from the Humanities and Social Sciences strand.</p>
+            <div class="authors-grid">
+                <!-- Author 1: De los Angeles, Maryjane -->
+                <div class="author-card">
+                    <div class="author-img-container">
+                        <img src="Maryjane Delos Angeles.jpg" alt="Maryjane De los Angeles" class="author-img" onerror="this.src='https://ui-avatars.com/api/?name=Maryjane+De+los+Angeles&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div class="author-name">Maryjane De los Angeles</div>
+                    <div class="author-program">Bachelor of Secondary Education</div>
+                   
+                    <div class="author-bio">
+                        I am currently navigating my third year as a Bachelor of Secondary Education student with a clear vision for the future: to be the teacher who makes learning stick. My goal is to move beyond the textbook to create deeply resonant and interactive experiences for every student I teach.
+                    </div>
+                </div>
                 
-                <div class="authors-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
-                    <div class="author-card" style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); text-align: center; transition: transform 0.3s ease;">
-                        <div class="author-img" style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-purple)); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary-color);">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <div class="author-name" style="font-weight: 600; color: var(--primary-color); margin-bottom: 5px;">Maria Santos</div>
-                        <div class="author-role" style="color: var(--secondary-color); font-size: 0.9rem; margin-bottom: 10px;">Group Leader & Researcher</div>
-                        <p>Focused on pre-colonial poetry and oral traditions</p>
+                <!-- Author 2: Mejia, Ivan Josh G. -->
+                <div class="author-card">
+                    <div class="author-img-container">
+                        <img src="Ivan Josh G. Mejia.jpg" alt="Ivan Josh G. Mejia" class="author-img" onerror="this.src='https://ui-avatars.com/api/?name=Ivan+Josh+Mejia&background=967bb6&color=fff&size=200'">
                     </div>
-                    
-                    <div class="author-card" style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); text-align: center; transition: transform 0.3s ease;">
-                        <div class="author-img" style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-purple)); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary-color);">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <div class="author-name" style="font-weight: 600; color: var(--primary-color); margin-bottom: 5px;">Juan Dela Cruz</div>
-                        <div class="author-role" style="color: var(--secondary-color); font-size: 0.9rem; margin-bottom: 10px;">Content Developer</div>
-                        <p>Specialized in epics and folk narratives</p>
+                    <div class="author-name">Ivan Josh G. Mejia</div>
+                    <div class="author-program">Bachelor of Secondary Education</div>
+                 
+                    <div class="author-bio">
+                        I am an aspiring educator taking professional education subjects, including Prof. Ed. 7: Technology for Teaching and Learning 1. I aim to develop effective teaching skills and responsibly integrate technology to support meaningful learning.
                     </div>
+                </div>
+                
+                <!-- Author 3: Ravela, Zcerelle Anne M. -->
+                <div class="author-card">
+                    <div class="author-img-container">
+                        <img src="Zcerelle Anne M. Ravela.jpg" alt="Zcerelle Anne M. Ravela" class="author-img" onerror="this.src='https://ui-avatars.com/api/?name=Zcerelle+Anne+Ravela&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div class="author-name">Zcerelle Anne M. Ravela</div>
+                    <div class="author-program">Bachelor of Secondary Education</div>
+                
+                    <div class="author-bio">
+                        I am a dedicated Third Year College student taking up a Bachelor of Secondary Education major in English. An aspiring educator, passionate in exploring and sharing learning experiences leading to more engaging and meaningful outcomes.
+                    </div>
+                </div>
+                
+                <!-- Author 4: Rimando, Carlo Marion Jade D. -->
+                <div class="author-card">
+                    <div class="author-img-container">
+                        <img src="Carlo Marion Jade D. Rimando.jpg" alt="Carlo Marion Jade D. Rimando" class="author-img" onerror="this.src='https://ui-avatars.com/api/?name=Carlo+Marion+Jade+Rimando&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div class="author-name">Carlo Marion Jade D. Rimando</div>
+                    <div class="author-program">Bachelor of Secondary Education</div>
                     
-                    <div class="author-card" style="background-color: white; border-radius: 8px; padding: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); text-align: center; transition: transform 0.3s ease;">
-                        <div class="author-img" style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-purple)); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary-color);">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <div class="author-name" style="font-weight: 600; color: var(--primary-color); margin-bottom: 5px;">Andrea Reyes</div>
-                        <div class="author-role" style="color: var(--secondary-color); font-size: 0.9rem; margin-bottom: 10px;">Design & Layout</div>
-                        <p>Created visual materials and presentation design</p>
+                    <div class="author-bio">
+                        I am a third-year Bachelor of Secondary Education student and a future teacher. I aim to create engaging and meaningful learning experiences for my students.
+                    </div>
+                </div>
+                
+                <!-- Author 5: Saenz, John Erwin G. -->
+                <div class="author-card">
+                    <div class="author-img-container">
+                        <img src="John Erwin G. Saenz.jpg" alt="John Erwin G. Saenz" class="author-img" onerror="this.src='https://ui-avatars.com/api/?name=John+Erwin+Saenz&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div class="author-name">John Erwin G. Saenz</div>
+                    <div class="author-program">Bachelor of Secondary Education</div>
+                    
+                    <div class="author-bio">
+                        Hi, I'm John Erwin G. Saenz, a third-year Bachelor of Secondary Education student excited to help grow young minds as a future secondary teacher. I want my classroom where students experiment freely, celebrate wins, and learn from fails, so they grow tall and make the world better for all.
                     </div>
                 </div>
             </div>
-            
-            <div class="info-card">
-                <h3><i class="fas fa-hands-helping"></i> Acknowledgement and Dedication</h3>
-                <p>We would like to express our heartfelt gratitude to God for giving us strength and guidance throughout this project. We also sincerely thank our professor for her unwavering support, valuable insights, and guidance in completing this e-portfolio. This work is dedicated to our families and to all students exploring the rich heritage of Philippine literature.</p>
-            </div>
-        </section>
+        </div>
+        
+        <div class="info-card">
+            <h3><i class="fas fa-hands-helping"></i> Acknowledgement and Dedication</h3>
+            <p>We would like to express our heartfelt gratitude to God for giving us strength and guidance throughout this project. We also sincerely thank our professor for her unwavering support, valuable insights, and guidance in completing this e-portfolio. This work is dedicated to our families and to all students exploring the rich heritage of Philippine literature.</p>
+        </div>
+    </section>
         
         <!-- LESSON PLAN SECTION -->
         <section id="lesson-plan" class="content-section hidden">
@@ -441,7 +611,7 @@
             </div>
             
             <div class="embed-container">
-                <iframe src="https://docs.google.com/document/d/e/2PACX-1vTwxLfQVmE_8OGqsoErn8RTk3heC2nbVyK7NcM1dG0OyI3yOvonTx999QVGa9nPA7r5QmNF3ccK48a3/pub?embedded=true"></iframe>
+               <iframe src="https://docs.google.com/document/d/1D_eZ1leZkyBcCgteVOxWZX0FRH0K7bHeT0RU8Qrh0Y4/preview"></iframe>
             </div>
             
             <div class="embed-controls">
@@ -478,26 +648,14 @@
                 </div>
                 
                 <div class="embed-controls">
-                    <button class="btn-lavender" id="view-fullscreen">
-                        <i class="fas fa-expand"></i> View Fullscreen
-                    </button>
+                
                     <button class="btn-lavender download-btn" id="download-image">
                         <i class="fas fa-download"></i> Download Telechart (.jpg)
                     </button>
                 </div>
             </div>
             
-            <div class="info-card" style="margin-top: 30px;">
-                <h4><i class="fas fa-info-circle"></i> About This Learning Material</h4>
-                <p>The Telechart serves as a comprehensive visual guide that categorizes and explains the various literary genres from the pre-colonial period of the Philippines. It helps students understand:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>The different forms of oral and written literature</li>
-                    <li>How each genre reflects cultural values and beliefs</li>
-                    <li>The geographical distribution of literary forms</li>
-                    <li>Connections between different genres</li>
-                </ul>
-                <p style="margin-top: 15px;">This visual aid is particularly useful for visual learners and helps in quickly grasping the complex relationships between different pre-colonial literary forms.</p>
-            </div>
+            
         </section>
         
         <!-- PRESENTATION SECTION - PDF VERSION -->
@@ -582,7 +740,7 @@
             
             <div class="embed-container">
                 <!-- YOUR WORKSHEET EMBED CODE -->
-                <iframe src="https://docs.google.com/document/d/e/2PACX-1vRbVt1Ikrjgq9FF11VYuytY5Z5Xq2Tp4ySWGuMwvVaYTXmI0le4aQ0fTEMOFAu5USkxLDoqEDJu6tr-/pub?embedded=true"></iframe>
+                <iframe src="https://docs.google.com/document/d/1E6BlR3pwAytxC8dTqogLqvf-7440ZyZA4_2Fr29obzw/preview"></iframe>
             </div>
             
             <div class="embed-controls">
@@ -607,50 +765,162 @@
             </div>
         </section>
         
-        <!-- REFLECTIONS SECTION -->
-        <section id="reflections" class="content-section hidden">
-            <h2 class="section-title">V. Reflections</h2>
-            <p>This section contains personal and group reflections on the learning experience.</p>
-            
-            <div class="lesson-content" style="padding: 20px; background-color: var(--light-color); border-radius: 8px; margin-top: 20px;">
-                <h3 style="color: var(--primary-color);">Learning Reflections</h3>
-                <p>Each group member shares their insights and learning experiences from working on this e-portfolio project.</p>
-                
-                <div style="margin-top: 20px;">
-                    <div class="reflection-card" style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 4px solid var(--secondary-color);">
-                        <h4 style="color: var(--primary-color);"><i class="fas fa-user-circle"></i> Maria's Reflection</h4>
-                        <p>"Creating this e-portfolio has been an enlightening experience. I was amazed by the richness of pre-colonial literature and how it reflects the wisdom and creativity of our ancestors. Working with my group taught me the value of collaboration and how different perspectives can enrich our understanding of literary texts."</p>
-                        <p style="font-style: italic; margin-top: 10px; color: var(--secondary-color); padding: 8px; background-color: #f5f0ff; border-radius: 5px;">
-                            <i class="fas fa-lightbulb"></i> Key learning: Appreciating oral traditions as valid literary forms
-                        </p>
+       <!-- REFLECTIONS SECTION -->
+<section id="reflections" class="content-section hidden">
+    <h2 class="section-title">V. Reflections</h2>
+    <p>This section contains personal reflections from each group member on their learning experience in creating this e-portfolio.</p>
+    
+    <div class="lesson-content" style="padding: 20px; background-color: var(--light-color); border-radius: 8px; margin-top: 20px;">
+        <h3 style="color: var(--primary-color);">Learning Reflections</h3>
+        <p>Each group member shares their insights and learning experiences from working on this e-portfolio project about Pre-Colonial Literature.</p>
+        
+        <!-- Reflection Navigation Tabs -->
+        <div class="reflection-tabs" style="display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap;">
+            <button class="reflection-tab active" data-reflection="carlo">Carlo Rimando</button>
+            <button class="reflection-tab" data-reflection="ivan">Ivan Mejia</button>
+            <button class="reflection-tab" data-reflection="zcerelle">Zcerelle Ravela</button>
+            <button class="reflection-tab" data-reflection="maryjane">Maryjane De los Angeles</button>
+            <button class="reflection-tab" data-reflection="john">John Erwin Saenz</button>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <!-- Carlo Rimando's Reflection -->
+            <div id="carlo-reflection" class="reflection-card active-reflection" style="background-color: white; padding: 30px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 6px solid var(--secondary-color);">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin-right: 20px; border: 3px solid var(--pastel-lavender);">
+                        <img src="Carlo Marion Jade D. Rimando.jpg" alt="Carlo Rimando" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Carlo+Rimando&background=967bb6&color=fff&size=200'">
                     </div>
-                    
-                    <div class="reflection-card" style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 4px solid var(--secondary-color);">
-                        <h4 style="color: var(--primary-color);"><i class="fas fa-user-circle"></i> Juan's Reflection</h4>
-                        <p>"I was particularly fascinated by the epic narratives. Reading about heroes like Lam-ang and discovering how these stories were preserved through oral tradition made me realize the importance of cultural preservation. This project helped me connect more deeply with my heritage."</p>
-                        <p style="font-style: italic; margin-top: 10px; color: var(--secondary-color); padding: 8px; background-color: #f5f0ff; border-radius: 5px;">
-                            <i class="fas fa-lightbulb"></i> Key learning: The role of literature in cultural identity formation
-                        </p>
-                    </div>
-                    
-                    <div class="reflection-card" style="background-color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 4px solid var(--secondary-color);">
-                        <h4 style="color: var(--primary-color);"><i class="fas fa-user-circle"></i> Andrea's Reflection</h4>
-                        <p>"As the design lead, I enjoyed finding ways to visually represent pre-colonial concepts. The challenge was to create materials that are both educational and engaging. This experience taught me that design can enhance learning and make complex concepts more accessible."</p>
-                        <p style="font-style: italic; margin-top: 10px; color: var(--secondary-color); padding: 8px; background-color: #f5f0ff; border-radius: 5px;">
-                            <i class="fas fa-lightbulb"></i> Key learning: Visual design as a tool for effective communication
-                        </p>
-                    </div>
-                    
-                    <div class="reflection-card" style="background: linear-gradient(to right, #f5f0ff, #e6e6fa); padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 4px solid var(--secondary-color);">
-                        <h4 style="color: var(--primary-color);"><i class="fas fa-users"></i> Group Reflection</h4>
-                        <p>"As a group, we learned that pre-colonial literature is not just a subject to study but a living tradition that continues to influence contemporary Philippine culture. The collaborative process of creating this e-portfolio helped us appreciate different strengths and perspectives. We realized that technology can be a powerful tool for preserving and promoting cultural heritage."</p>
-                        <p style="font-style: italic; margin-top: 10px; color: var(--secondary-color); padding: 8px; background-color: white; border-radius: 5px;">
-                            <i class="fas fa-lightbulb"></i> Collective insight: Bridging traditional knowledge with modern technology
-                        </p>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 5px;">Carlo Marion Jade D. Rimando</h4>
+                        <p style="color: var(--secondary-color); font-size: 0.95rem;">Bachelor of Secondary Education</p>
                     </div>
                 </div>
+                
+                <div class="reflection-content">
+                    <p>"Working on this e-portfolio about Pre-Colonial Literary Genres has honestly been both challenging and super rewarding for me as a 3rd-year college student and future teacher. At first, I didn't really know how to organize everything - the lesson plans, worksheets, PowerPoint slides, and reflections - but as I started putting things together, I realized that this project wasn't just about completing requirements. It was actually a really good opportunity to think like a teacher, plan learning activities, and reflect on how I would present content to students in the future."</p>
+                    
+                    <p>"One of the first things I did for this e-portfolio was making the lesson plan. I had to think about objectives that cover knowledge, values, and skills - all the cognitive, affective, and psychomotor aspects. Designing the lesson made me realize how important it is to balance content with activities that engage students. I learned that pre-colonial literature isn't just about old stories or proverbs, it's a reflection of our culture, beliefs, and history."</p>
+                    
+                    <p>"Through this e-portfolio, I also started to appreciate Filipino culture on a deeper level. Before this, I didn't really think much about pre-colonial literature; I knew it existed, but I didn't understand its significance. Now, I see that these works - epics like Biag ni Lam-ang, riddles (bugtong), and proverbs (salawikain) - are more than old stories. They teach values like bravery, wisdom, respect, and community, and they show how our ancestors lived and thought."</p>
+                    
+                    <p style="font-style: italic; margin-top: 20px; color: var(--secondary-color); padding: 15px; background-color: #f5f0ff; border-radius: 5px; border-left: 4px solid var(--primary-color);">
+                        <i class="fas fa-lightbulb"></i> <strong>Key Insight:</strong> "This e-portfolio is more than just a requirement. It's a reflection of my growth as a future teacher, my understanding of pre-colonial Philippine literature, and my ability to create meaningful learning materials."
+                    </p>
+                </div>
             </div>
-        </section>
+            
+            <!-- Ivan Mejia's Reflection -->
+            <div id="ivan-reflection" class="reflection-card" style="background-color: white; padding: 30px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 6px solid var(--secondary-color); display: none;">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin-right: 20px; border: 3px solid var(--pastel-lavender);">
+                        <img src="Ivan Josh G. Mejia.jpg" alt="Ivan Mejia" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Ivan+Mejia&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 5px;">Ivan Josh G. Mejia</h4>
+                        <p style="color: var(--secondary-color); font-size: 0.95rem;">Bachelor of Secondary Education</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-content">
+                    <p>"Creating our e-portfolio titled 'An E-Portfolio for Literary Genres During the Pre-Colonial Period' was a meaningful and enriching experience that allowed me to explore not only the richness of early literature but also my own growth as a learner in the digital age. This project challenged me to combine creativity, research, and technology while deepening my understanding of pre-colonial literary genres and their significance in shaping culture, identity, and tradition."</p>
+                    
+                    <p>"At the beginning of this task, I viewed the e-portfolio simply as a digital compilation of lessons and outputs. However, as I progressed, I realized that it was more than just an online folder—it became a space where learning, reflection, and creativity came together. The process of designing and organizing the e-portfolio helped me understand how literature from the pre-colonial period was not just written texts but living expressions of people's beliefs, values, and ways of life."</p>
+                    
+                    <p>"One of the most important lessons I gained from this project was a deeper appreciation of pre-colonial literary genres such as myths, legends, epics, folktales, riddles, proverbs, chants, and songs. Through research and reflection, I learned that oral literature was the foundation of storytelling and education in pre-colonial societies. These genres served as tools for teaching moral values, preserving history, explaining natural phenomena, and strengthening community bonds."</p>
+                    
+                    <p>"This project also strengthened my sense of cultural identity. Learning about pre-colonial literary genres made me feel proud of our ancestors' creativity and wisdom. It reminded me that long before colonization, people already had rich traditions, stories, and systems of knowledge. The e-portfolio became a platform for honoring that heritage and preserving it in a modern format."</p>
+                    
+                    <p style="font-style: italic; margin-top: 20px; color: var(--secondary-color); padding: 15px; background-color: #f5f0ff; border-radius: 5px; border-left: 4px solid var(--primary-color);">
+                        <i class="fas fa-lightbulb"></i> <strong>Key Insight:</strong> "Creating the e-portfolio on literary genres during the pre-colonial period was a valuable and transformative experience. It enhanced my understanding of early literature, improved my digital and research skills, and deepened my appreciation for cultural heritage."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Zcerelle Ravela's Reflection -->
+            <div id="zcerelle-reflection" class="reflection-card" style="background-color: white; padding: 30px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 6px solid var(--secondary-color); display: none;">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin-right: 20px; border: 3px solid var(--pastel-lavender);">
+                        <img src="Zcerelle Anne M. Ravela.jpg" alt="Zcerelle Ravela" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Zcerelle+Ravela&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 5px;">Zcerelle Anne M. Ravela</h4>
+                        <p style="color: var(--secondary-color); font-size: 0.95rem;">Bachelor of Secondary Education</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-content">
+                    <p>"Creating an e-portfolio focused on literary genres during the pre-colonial period has been a transformative experience for me as a 3rd-year college student and aspiring educator. This project not only deepened my understanding of our rich cultural heritage but also provided invaluable insights into effective teaching methodologies and the importance of preserving indigenous knowledge."</p>
+                    
+                    <p>"One of the first steps in this journey was developing the lesson plan. This task required me to thoughtfully consider the objectives I wanted to achieve, ensuring they encompassed knowledge, values, and skills across the cognitive, affective, and psychomotor domains. Designing the lesson plan made me realize the significance of balancing content with interactive activities that would engage students."</p>
+                    
+                    <p>"Through this e-portfolio, I developed a deeper appreciation for Filipino culture. Before this project, I had a superficial understanding of pre-colonial literature; I knew it existed but did not grasp its significance. Now, I see that works like the epic Biag ni Lam-ang, riddles (bugtong), and proverbs (salawikain) are more than just old stories. They teach valuable lessons about bravery, wisdom, respect, and community."</p>
+                    
+                    <p>"Collaborating with my groupmates was another significant learning experience. We had to coordinate our efforts, deciding who would handle the lesson plan, PowerPoint slides, and worksheets. While there were moments of disagreement, the overall experience taught me valuable lessons about teamwork, communication, and responsibility—skills that I know will be essential in my future classroom."</p>
+                    
+                    <p style="font-style: italic; margin-top: 20px; color: var(--secondary-color); padding: 15px; background-color: #f5f0ff; border-radius: 5px; border-left: 4px solid var(--primary-color);">
+                        <i class="fas fa-lightbulb"></i> <strong>Key Insight:</strong> "This e-portfolio project has been a transformative experience for me. It has not only deepened my understanding of pre-colonial literary genres but also equipped me with essential skills for my future career as a teacher."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Maryjane De los Angeles' Reflection -->
+            <div id="maryjane-reflection" class="reflection-card" style="background-color: white; padding: 30px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 6px solid var(--secondary-color); display: none;">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin-right: 20px; border: 3px solid var(--pastel-lavender);">
+                        <img src="Maryjane Delos Angeles.jpg" alt="Maryjane De los Angeles" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Maryjane+De+los+Angeles&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 5px;">Maryjane De los Angeles</h4>
+                        <p style="color: var(--secondary-color); font-size: 0.95rem;">Bachelor of Secondary Education</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-content">
+                    <p>"Reflecting on this past semester as a third-year Bachelor of Secondary Education student, I realize it has been a definitive turning point in my journey toward becoming a teacher. The third year is often the most demanding, acting as the bridge between theoretical classroom learning and the practical realities of pedagogy. Throughout the semester, I grappled with increasingly complex subjects that shifted my focus from merely understanding content to mastering the art of delivering it."</p>
+                    
+                    <p>"The process of creating my e-portfolio served as the perfect companion to this academic growth, acting as a digital mirror that reflected my evolving professional identity. Initially, I viewed the e-portfolio as a simple technical requirement—a place to store files and proof of work. However, as I began to curate my artifacts, the experience transformed into a deep, meditative practice of self-discovery."</p>
+                    
+                    <p>"Building the e-portfolio also highlighted the vital role of digital literacy in the 2025 educational landscape. As I designed the layout and navigation of my site, I realized that the 'user experience' of a portfolio is very similar to the 'learning experience' in a classroom. Both require clarity, organization, and an inviting atmosphere to be effective."</p>
+                    
+                    <p>"Ultimately, this semester and the e-portfolio project have solidified my vision for my future classroom. I have learned that a 'meaningful experience' is one where a student feels empowered and connected to the material. By documenting my own 'aha!' moments and the hurdles I overcame this term, I have created a roadmap that I can return to whenever I face challenges in my career."</p>
+                    
+                    <p style="font-style: italic; margin-top: 20px; color: var(--secondary-color); padding: 15px; background-color: #f5f0ff; border-radius: 5px; border-left: 4px solid var(--primary-color);">
+                        <i class="fas fa-lightbulb"></i> <strong>Key Insight:</strong> "This semester has taught me that while the path to becoming a teacher is demanding, the ability to reflect on that path makes the journey infinitely more rewarding. I am no longer just a student of education; I am a designer of the future, ready to create impact one lesson at a time."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- John Erwin Saenz's Reflection -->
+            <div id="john-reflection" class="reflection-card" style="background-color: white; padding: 30px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(150, 123, 182, 0.08); border-left: 6px solid var(--secondary-color); display: none;">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin-right: 20px; border: 3px solid var(--pastel-lavender);">
+                        <img src="John Erwin G. Saenz.jpg" alt="John Erwin Saenz" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=John+Erwin+Saenz&background=967bb6&color=fff&size=200'">
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 5px;">John Erwin G. Saenz</h4>
+                        <p style="color: var(--secondary-color); font-size: 0.95rem;">Bachelor of Secondary Education</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-content">
+                    <p>"When I first stepped into Technology for Teaching and Learning 1 (TTL 1), I'll admit it: I thought it was just about learning Microsoft Word, making better PowerPoint slides, and maybe using Google Forms. I called myself good with tech because I grew up with a smartphone, but this class showed me there's a big gap between using gadgets for fun and weaving them into teaching."</p>
+                    
+                    <p>"At first, I chased shiny new toys. I figured if a teacher used virtual reality goggles or cool games, they were automatically great. But our talks about simple tech levels - like swapping paper for screens, improving tasks, changing how we teach, or doing brand new things and blending tech with teaching know-how - flipped my thinking."</p>
+                    
+                    <p>"The most comforting part? Tech will never replace teachers. I used to worry AI or online lessons would take my job. But TTL 1 showed me teachers are the leaders who guide everything. A computer can score a quiz, but it can't spot a kid's frustrated face and give the right pep talk. It can't help through a tough day. Learning teacher tech skills helped me see I'm the guide - tech is the car, but I pick the path."</p>
+                    
+                    <p>"Before, I thought digital citizenship meant just warning kids about online strangers. Now I know it's deeper: teaching them to handle their online trail, spot fake news, and use their voice for good. In a world full of online meanness, I feel ready to show kindness and smart thinking online. We're not just teaching typing or coding - we're shaping the next wave of good digital people."</p>
+                    
+                    <p style="font-style: italic; margin-top: 20px; color: var(--secondary-color); padding: 15px; background-color: #f5f0ff; border-radius: 5px; border-left: 4px solid var(--primary-color);">
+                        <i class="fas fa-lightbulb"></i> <strong>Key Insight:</strong> "In short, this class was an eye-opener. Tech isn't a fun add-on - it's key for today's teaching. I leave with more than tool lists - a whole new way to teach. I'm not just a teacher to be, I'm a future-ready educator."
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+</section>
         
         <footer>
             <p>E-Portfolio on Pre-Colonial Literature | Grade 11 - 1st Quarter</p>
@@ -658,99 +928,149 @@
     </div>
 
     <script>
-        // Tab switching functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.tab');
-            const sections = document.querySelectorAll('.content-section');
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up fallback for missing author images
+    const authorImages = document.querySelectorAll('.author-img');
+    authorImages.forEach(img => {
+        img.addEventListener('error', function() {
+            const authorName = this.alt;
+            this.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(authorName)}&background=967bb6&color=fff&size=200`;
+        });
+    });
+
+    // Tab switching functionality
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.content-section');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-tab');
             
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const targetTab = this.getAttribute('data-tab');
-                    
-                    // Update active tab
-                    tabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show target section, hide others
-                    sections.forEach(section => {
-                        if (section.id === targetTab) {
-                            section.classList.remove('hidden');
-                        } else {
-                            section.classList.add('hidden');
-                        }
-                    });
+            // Update active tab
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show target section, hide others
+            sections.forEach(section => {
+                if (section.id === targetTab) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+        });
+    });
+    
+    // Reflection tabs functionality
+    const reflectionTabs = document.querySelectorAll('.reflection-tab');
+    const reflectionCards = document.querySelectorAll('.reflection-card');
+    
+    if (reflectionTabs.length > 0) {
+        reflectionTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const reflectionId = this.getAttribute('data-reflection');
+                
+                // Update active tab
+                reflectionTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show target reflection, hide others
+                reflectionCards.forEach(card => {
+                    if (card.id === `${reflectionId}-reflection`) {
+                        card.style.display = 'block';
+                        card.classList.add('active-reflection');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('active-reflection');
+                    }
                 });
             });
-            
-            // Lesson Plan controls - UPDATED WITH WORKING DOWNLOAD
-            document.getElementById('open-lesson')?.addEventListener('click', function() {
-                window.open('https://docs.google.com/document/d/1TwxLfQVmE_8OGqsoErn8RTk3heC2nbVyK7NcM1dG0OyI3yOvonTx999QVGa9nPA7r5QmNF3ccK48a3/edit?usp=sharing', '_blank');
-            });
-            
-            document.getElementById('download-lesson')?.addEventListener('click', function() {
-                // Working direct download link for Google Docs as .docx
-                window.open('https://docs.google.com/document/d/1TwxLfQVmE_8OGqsoErn8RTk3heC2nbVyK7NcM1dG0OyI3yOvonTx999QVGa9nPA7r5QmNF3ccK48a3/export?format=docx', '_blank');
-            });
-            
-            // Learning Material controls
-            document.getElementById('view-fullscreen')?.addEventListener('click', function() {
-                const imageFrame = document.querySelector('.image-frame');
-                if (imageFrame.requestFullscreen) {
-                    imageFrame.requestFullscreen();
-                } else if (imageFrame.webkitRequestFullscreen) {
-                    imageFrame.webkitRequestFullscreen();
-                } else if (imageFrame.mozRequestFullScreen) {
-                    imageFrame.mozRequestFullScreen();
-                }
-            });
-            
-            document.getElementById('download-image')?.addEventListener('click', function() {
-                // Create a temporary link to download the image
-                const link = document.createElement('a');
-                link.href = 'Telechart.jpg';
-                link.download = 'Pre-Colonial-Literary-Genres-Telechart.jpg';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
-            
-            // PDF controls
-            document.getElementById('open-pdf')?.addEventListener('click', function() {
-                window.open('https://drive.google.com/file/d/1SJO_sN6M9HOj_LoILxNbwt1-Dz8O9uDr/view', '_blank');
-            });
-            
-            document.getElementById('download-pdf')?.addEventListener('click', function() {
-                // Direct download link for PDF
-                window.open('https://drive.google.com/uc?export=download&id=1SJO_sN6M9HOj_LoILxNbwt1-Dz8O9uDr', '_blank');
-            });
-            
-            document.getElementById('pdf-fullscreen')?.addEventListener('click', function() {
-                const iframe = document.querySelector('#ppt iframe');
-                if (iframe) {
-                    if (iframe.requestFullscreen) {
-                        iframe.requestFullscreen();
-                    } else if (iframe.webkitRequestFullscreen) {
-                        iframe.webkitRequestFullscreen();
-                    } else if (iframe.mozRequestFullScreen) {
-                        iframe.mozRequestFullScreen();
-                    }
-                }
-            });
-            
-            // Worksheet controls - UPDATED WITH WORKING DOWNLOAD
-            document.getElementById('open-worksheet')?.addEventListener('click', function() {
-                window.open('https://docs.google.com/document/d/1RbVt1Ikrjgq9FF11VYuytY5Z5Xq2Tp4ySWGuMwvVaYTXmI0le4aQ0fTEMOFAu5USkxLDoqEDJu6tr-/edit?usp=sharing', '_blank');
-            });
-            
-            document.getElementById('download-worksheet')?.addEventListener('click', function() {
-                // Working direct download link for Google Docs as .docx
-                window.open('https://docs.google.com/document/d/1RbVt1Ikrjgq9FF11VYuytY5Z5Xq2Tp4ySWGuMwvVaYTXmI0le4aQ0fTEMOFAu5USkxLDoqEDJu6tr-/export?format=docx', '_blank');
-            });
-            
-            // Initialize with home tab active
-            document.querySelector('[data-tab="home"]').classList.add('active');
-            document.getElementById('home').classList.remove('hidden');
         });
-    </script>
+    }
+    
+    // Lesson Plan controls
+    document.getElementById('open-lesson')?.addEventListener('click', function() {
+        // Open edit/view link
+        window.open('https://docs.google.com/document/d/1D_eZ1leZkyBcCgteVOxWZX0FRH0K7bHeT0RU8Qrh0Y4/edit?usp=sharing', '_blank');
+    });
+    
+    document.getElementById('download-lesson')?.addEventListener('click', function() {
+        // CORRECT download link for .docx format
+        window.open('https://docs.google.com/document/d/1D_eZ1leZkyBcCgteVOxWZX0FRH0K7bHeT0RU8Qrh0Y4/export?format=docx', '_blank');
+    });
+    
+    // Learning Material controls
+    document.getElementById('view-fullscreen')?.addEventListener('click', function() {
+        const imageFrame = document.querySelector('.image-frame');
+        if (imageFrame.requestFullscreen) {
+            imageFrame.requestFullscreen();
+        } else if (imageFrame.webkitRequestFullscreen) {
+            imageFrame.webkitRequestFullscreen();
+        } else if (imageFrame.mozRequestFullScreen) {
+            imageFrame.mozRequestFullScreen();
+        }
+    });
+    
+    document.getElementById('download-image')?.addEventListener('click', function() {
+        // Create a temporary link to download the image
+        const link = document.createElement('a');
+        link.href = 'Telechart.jpg';
+        link.download = 'Pre-Colonial-Literary-Genres-Telechart.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    
+    // PDF controls
+    document.getElementById('open-pdf')?.addEventListener('click', function() {
+        window.open('https://drive.google.com/file/d/1SJO_sN6M9HOj_LoILxNbwt1-Dz8O9uDr/view', '_blank');
+    });
+    
+    document.getElementById('download-pdf')?.addEventListener('click', function() {
+        // Direct download link for PDF
+        window.open('https://drive.google.com/uc?export=download&id=1SJO_sN6M9HOj_LoILxNbwt1-Dz8O9uDr', '_blank');
+    });
+    
+    document.getElementById('pdf-fullscreen')?.addEventListener('click', function() {
+        const iframe = document.querySelector('#ppt iframe');
+        if (iframe) {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            }
+        }
+    });
+    
+    // Worksheet controls
+    document.getElementById('open-worksheet')?.addEventListener('click', function() {
+        // Open edit/view link
+        window.open('https://docs.google.com/document/d/1E6BlR3pwAytxC8dTqogLqvf-7440ZyZA4_2Fr29obzw/edit?usp=sharing', '_blank');
+    });
+    
+    document.getElementById('download-worksheet')?.addEventListener('click', function() {
+        // CORRECT download link for .docx format
+        window.open('https://docs.google.com/document/d/1E6BlR3pwAytxC8dTqogLqvf-7440ZyZA4_2Fr29obzw/export?format=docx', '_blank');
+    });
+    
+    // Initialize with home tab active
+    document.querySelector('[data-tab="home"]').classList.add('active');
+    document.getElementById('home').classList.remove('hidden');
+    
+    // Initialize first reflection as active
+    const firstReflectionTab = document.querySelector('.reflection-tab');
+    if (firstReflectionTab) {
+        firstReflectionTab.classList.add('active');
+        const firstReflectionId = firstReflectionTab.getAttribute('data-reflection');
+        const firstReflectionCard = document.getElementById(`${firstReflectionId}-reflection`);
+        if (firstReflectionCard) {
+            firstReflectionCard.style.display = 'block';
+            firstReflectionCard.classList.add('active-reflection');
+        }
+    }
+});
+</script>
 </body>
 </html>
